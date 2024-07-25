@@ -37,34 +37,7 @@ h1, h2,h3 {
     margin-bottom: 30px;
 }
 
-.nav-tabs {
-    display: flex;
-    list-style-type: none;
-    padding: 0;
-    margin-bottom: 20px;
-    justify-content: center;
-    border-bottom: 2px solid var(--secondary-color);
-}
 
-.nav-tabs li {
-    padding: 10px 20px;
-    cursor: pointer;
-    margin: 7px;
-    background-color: #45a049;
-    color: #F0F8FF;
-    transition: background-color 0.3s ease;
-}
-
-.nav-tabs li.active {
-    background-color: var(--secondary-color);
-    color: white;
-    background-color: #4CAF50;
-}
-
-form {
-    display: grid;
-    gap: 10px;
-}
 
 input, select, button {
     padding: 10px;
@@ -100,6 +73,9 @@ li {
     margin-bottom: 15px;
     padding: 15px;
     border-radius: 4px;
+    box-shadow: 3px 2px #5332;
+    border-radius: 15px;
+    background-color: white;
 }
 
 li h4 {

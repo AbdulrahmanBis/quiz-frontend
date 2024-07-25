@@ -96,10 +96,11 @@ ul {
 }
 
 li {
-    background-color: var(--secondary-color);
     margin-bottom: 15px;
     padding: 15px;
-    border-radius: 4px;
+    box-shadow: 3px 2px #5332;
+    border-radius: 15px;
+    background-color: white;
 }
 
 li h4 {

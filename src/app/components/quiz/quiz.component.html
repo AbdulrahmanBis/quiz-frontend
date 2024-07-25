@@ -1,0 +1,46 @@
+ 
+    <div class="gridView" *ngIf="!quizStarted && !startUpdateQuiz">
+        <h2>Take a Quiz</h2>
+      <select [(ngModel)]="selectedQuizId">
+        <option value="">Select a quiz</option>
+        <option *ngFor="let quiz of quizzes" [value]="quiz.id">{{quiz.title}}</option>
+      </select>
+      <button (click)="startQuiz()" [disabled]="!selectedQuizId">Start Quiz</button>
+      <button (click)="selcetUpdateQuiz()" [disabled]="!selectedQuizId">Update</button>
+    </div>
+    <div class="gridView" *ngIf="quizStarted ">
+      <h3>{{ quizTitle }}</h3>
+      <ul>
+        <li *ngFor="let question of quiz_questions; let i = index">
+          <h4>{{question.questionTitle}}</h4>
+          <select [(ngModel)]="responses[i].response">
+            <option value="">Select an option</option>
+            <option [value]="question.option1">{{question.option1}}</option>
+            <option [value]="question.option2">{{question.option2}}</option>
+            <option [value]="question.option3">{{question.option3}}</option>
+            <option [value]="question.option4">{{question.option4}}</option>
+          </select>
+        </li>
+      </ul>
+      <button (click)="submitQuiz()">Submit Quiz</button>
+    </div>
+    <div *ngIf="resultVisible">
+      <h3>Result</h3>
+      <p>{{ result }}</p>
+    </div>
+  
+
+  <div *ngIf="startUpdateQuiz">
+    <h2>Update/Delete Quiz</h2>
+    <div class="gridView">
+        <label>Quiz Title: </label>
+        <input [(ngModel)] = "updateSelectedQuiz.title" name = "title" placeholder="Quiz Title" required>
+        <label>Number of Questions: </label>
+        <input [(ngModel)] = "updateSelectedQuiz.numQ" name = "numQ" placeholder="Number of Questions" required>
+        <label>Category: </label>
+        <input [(ngModel)] = "updateSelectedQuiz.category" name = "category" placeholder="Category" required>
+        <button (click)="updateQuiz()">Update</button>
+        <button  (click)="deleteQuiz()">Delete</button>
+        <button (click)="toggleUpdateQuiz()">Cancel</button>
+    </div>
+  </div>

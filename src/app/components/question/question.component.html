@@ -1,0 +1,43 @@
+
+    <div class="gridView" *ngIf="!startUpdateQuestion" >
+    <h2>Question List</h2>
+    <div>
+      <input [(ngModel)]="selectedCategory" placeholder="Enter category">
+      <button (click)="getQuestionsByCategory()">Filter</button>
+    </div>
+    <ul>
+      <li *ngFor="let question of questions">
+        <h4>{{ question.questionTitle }}</h4>
+        <p>Options: {{ question.option1 }}, {{ question.option2 }}, {{ question.option3 }}, {{ question.option4 }}</p>
+        <p>Right Answer: {{ question.correctAnswer }}</p>
+        <p>Difficulty: {{ question.difficultyLevel }}</p>
+        <p>Category: {{ question.category }}</p>
+        <button (click)="selectedUpdateQuestion(question)">Update</button>
+      </li>
+    </ul>
+    </div>
+
+    <div *ngIf="startUpdateQuestion">
+        <form>
+            <label>Question Title: </label>
+            <input [(ngModel)] = "updateSelectedQuestion.questionTitle" name = "questionTitle" placeholder="Question Title" required>
+            <label>Options (1): </label>
+            <input [(ngModel)] = "updateSelectedQuestion.option1" name = "option1" placeholder="Option 1" required>
+            <label>Options (2): </label>
+            <input [(ngModel)] = "updateSelectedQuestion.option2" name = "option2" placeholder="Option 2" required>
+            <label>Options (3): </label>
+            <input [(ngModel)] = "updateSelectedQuestion.option3" name = "option3" placeholder="Option 3" required>
+            <label>Options (4): </label>
+            <input [(ngModel)] = "updateSelectedQuestion.option4" name = "option4" placeholder="Option 4" required>
+            <label>Right Answer: </label>
+            <input [(ngModel)] = "updateSelectedQuestion.correctAnswer" name = "correctAnswer" placeholder="Right Answer" required>
+            <label>Difficulty Level: </label>
+            <input [(ngModel)] = "updateSelectedQuestion.difficultyLevel" name = "difficultyLevel" placeholder="Difficulty Level" required>
+            <label>Category: </label>
+            <input [(ngModel)] = "updateSelectedQuestion.category" name = "category" placeholder="Category" required>
+            <button (click) = "updateQuestion(updateSelectedQuestion)">Update</button>
+            <button (click) = "deleteQuestion(updateSelectedQuestion.id)">Delete</button>
+            <button (click) = "toggleUpdateQuestion()">Cancel</button>
+
+        </form>          
+    </div>

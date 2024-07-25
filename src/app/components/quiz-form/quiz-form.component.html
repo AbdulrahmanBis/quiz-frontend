@@ -1,0 +1,9 @@
+<form (ngSubmit)="onSubmit()">
+    <h3>Add New Quiz</h3>
+    <input [(ngModel)]="quiz.title" name="title" placeholder="Quiz Title" required>
+    <input [(ngModel)]="quiz.category" name="category" placeholder="Category" required>
+    <input [(ngModel)]="quiz.numQ" name="numQ" placeholder="Number of Questions" required>
+    <button type="submit">Add Quiz</button>
+    <button type="button" (click)="OnCancel()">Cancel</button>
+  </form>
+  

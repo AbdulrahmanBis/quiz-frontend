@@ -1,0 +1,14 @@
+<form (ngSubmit)="onSubmit()">
+    <h3>Add New Question</h3>
+    <input [(ngModel)]="question.questionTitle" name="questionTitle" placeholder="Question Title" required>
+    <input [(ngModel)]="question.option1" name="option1" placeholder="Option 1" required>
+    <input [(ngModel)]="question.option2" name="option2" placeholder="Option 2" required>
+    <input [(ngModel)]="question.option3" name="option3" placeholder="Option 3" required>
+    <input [(ngModel)]="question.option4" name="option4" placeholder="Option 4" required>
+    <input [(ngModel)]="question.correctAnswer" name="correctAnswer" placeholder="Right Answer" required>
+    <input [(ngModel)]="question.difficultyLevel" name="difficultyLevel" placeholder="Difficulty Level" required>
+    <input [(ngModel)]="question.category" name="category" placeholder="Category" required>
+    <button type="submit">Add Question</button>
+    <button type="button" (click)="OnCancel()">Cancel</button>
+  </form>
+  
